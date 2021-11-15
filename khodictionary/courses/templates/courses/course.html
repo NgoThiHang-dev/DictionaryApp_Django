@@ -1,0 +1,134 @@
+{% extends "dictionary/base.html" %}
+{% load static %} 
+{% block content %}
+<style>
+    .khoahoc-row {
+        margin-top: 2%;
+    }
+
+    .khoahoc-card {
+        height: 350px;
+        min-height: 20px;
+    }
+
+    .khoahoc-card img {
+        width: 100%;
+        height: 50%;
+    }
+</style>
+<div class="main-content-2" style="margin-bottom: 1em">
+    <br>
+    <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-heading text-center">
+              <h2 style="margin-top: 1.8em;">Khóa học theo chủ đề</h2>
+              <hr class="divider" />
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid p-0 m-0 align-items-center justify-content-center d-flex">
+        <div class="row w-100 p-0 w-0">
+            {% for course in course %}
+            <div class="col-lg-3 mb-2 khoahoc-row">
+                <div class="card mx-auto khoahoc-card" style="width:16rem;">
+                    <img class="card-img-top" src="{{course.image.url}}" alt="Card image cap">
+
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Bài {{course.id}}: {{course.title}}
+                        </h5>
+                        <p class="card-text">
+                            {{course.description}}
+                        </p>
+
+            
+                        <a href="" class="btn btn-success">
+                            Học ngay
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if course.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ course.previous_page_number }}" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% else %}
+                <li class="disabled">
+                    <a class="page-link" href="" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+    
+                {% if course.number > 5 %}
+                <li class="page-item"><a class="page-link" href="?page=1"><i>1</i></a></li>
+                {% endif %}
+    
+                {% for i in course.paginator.page_range %}
+                {% if i > course.number|add:"-5" %}
+                    {% if i < course.number|add:"5" %}
+                        {% if course.number == i %}
+                <!-- <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li> -->
+                <li class="active"><a class="page-link" href="?page=1"><b>{{ i }}</b></a></li>
+                        {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+                {% endfor %}
+    
+                {% if course.number < course.paginator.num_pages|add:"-5" %}
+                <li class="page-item"><a class="page-link" href="?page={{ course.paginator.num_pages }}"><i>{{ course.paginator.num_pages }}</i></a></li>
+                {% endif %}
+    
+                {% if course.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ course.next_page_number }}" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+integrity=
+"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+crossorigin="anonymous">
+</script>
+
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+integrity=
+"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+crossorigin="anonymous">
+</script>
+
+<script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+integrity=
+"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+crossorigin="anonymous">
+</script>
+{% endblock %}
