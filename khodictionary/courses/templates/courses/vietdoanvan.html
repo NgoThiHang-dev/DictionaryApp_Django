@@ -1,0 +1,113 @@
+{% extends "dictionary/base.html" %} {% load static %} {% block content %}
+
+<div class="main-content-2" style="margin-top: 1.8em; margin-bottom: 1em">
+  <br />
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="#"><i class="fa fa-home"></i>Trang chủ</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="{% url 'courses:courses' %}">Khóa học</a> 
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="height: 800px; min-height: 30px">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          aria-current="page"
+          href="{% url 'courses:course_detail' idbai %}"
+          data-toggle="tab"
+          >Chép bài</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="{% url 'courses:hoivatraloi' idbai %}"
+          data-toggle="tab"
+          >Hỏi và trả lời</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="{% url 'courses:damthoai' idbai %}"
+          data-toggle="tab"
+          >Đàm thoại</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="tab">Viết bài đàm thoại</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'courses:datcauhoi' idbai %}" data-toggle="tab">Đặt câu hỏi</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          href="{% url 'courses:vietdoanvan' idbai %}"
+          data-toggle="tab"
+          >Viết đoạn văn</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="{% url 'courses:tuvung' idbai %}"
+          data-toggle="tab"
+          >Từ vựng</a
+        >
+      </li>
+    </ul>
+    <div class="tab-content contentedit">
+      <div class="active tab-pane" id="activity">
+        <br>
+        {% if not vietdoanvan %}
+        <div class="callout callout-info">
+          <h5>Chưa có dữ liệu</h5>
+        </div>
+        {% else %} {% for a in vietdoanvan %}
+        <div class="row">
+          <div class="col-6">
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="m-0">Đoạn văn Tiếng Việt</h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">{{a.chude}}</h6>
+
+                <p class="card-text">{{a.tiengkho}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="m-0">Đoạn văn Tiếng K'ho</h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">{{a.chude}}</h6>
+
+                <p class="card-text">{{a.tiengviet}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %} {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

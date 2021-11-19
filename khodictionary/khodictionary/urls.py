@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 # from courses.views import GetAllCourseAPIView
-from dictionary.views import GetAllDictionaryAPIView
+# from dictionary.views import GetAllDictionaryAPIView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,6 +27,6 @@ urlpatterns = [
     path('courses/', include('courses.urls')),
     #api
     # path('api/courses/', GetAllCourseAPIView.as_view()),
-    path('api/dictionary/', GetAllDictionaryAPIView.as_view()),
+    # path('api/dictionary/', GetAllDictionaryAPIView.as_view()),
     
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

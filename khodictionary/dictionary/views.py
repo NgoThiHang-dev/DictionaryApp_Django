@@ -11,18 +11,66 @@ from django.db.models import Q
 from django.http import JsonResponse
 
 
-from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import GetAllDictionarySerializer
+from .serializers import DictionarySerializer
+from rest_framework.decorators import api_view
 
 # Create your views here.
-class GetAllDictionaryAPIView(APIView):
-    def get(self, request):
-        list_course=Dictionary.objects.all()
-        mydata=GetAllDictionarySerializer(list_course, many=True)
-        return Response(data=mydata.data, status=status.HTTP_200_OK)
+# class GetAllDictionaryAPIView(APIView):
+#     def get(self, request):
+#         list_course=Dictionary.objects.all()
+#         mydata=GetAllDictionarySerializer(list_course, many=True)
+#         return Response(data=mydata.data, status=status.HTTP_200_OK)
     
+@api_view(['GET'])   
+def apiOverview(request):
+    courses_urls={
+        'List': 'dictionary-list/',
+        'Detail view': 'dictionary-detail/<int:id>',
+        'Create': 'dictionary-create/',
+        'Update': 'dictionary-update/<int:id>',
+        'Delete': 'dictionary-delete/<int:id>', 
+    }
+    return Response(courses_urls)
+        
+
+@api_view(['GET'])
+def showAll(request):
+    courses=Dictionary.objects.all()
+    serializer=DictionarySerializer(courses, many=True)
+    return Response(serializer.data)
+ 
+@api_view(['GET'])
+def viewCourse(request, pk):
+    course=Dictionary.objects.get(id=pk)
+    serializer=DictionarySerializer(course, many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def CreateCourse(request):
+    serializer=DictionarySerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def UpdateCourse(request, pk):
+    product = Dictionary.objects.get(id=pk)
+    serializer = DictionarySerializer(instance=product, data=request.data)
+    
+    if serializer.is_valid():
+        serializer.save()
+        
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def DeleteCourse(request, pk):
+    product = Dictionary.objects.get(id=pk)
+    product.delete()
+
+    return Response('Items delete successfully!')
     
 
 def index(request):
