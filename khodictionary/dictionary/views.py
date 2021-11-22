@@ -90,7 +90,7 @@ def index(request):
         search = request.POST.get('search')
         if request.POST.get('vk'):
             results = Dictionary.objects.filter(Q(tiengviet__icontains=search))  
-        else:
+        elif request.POST.get('kv'):
             results = Dictionary.objects.filter(Q(tiengkho__icontains=search))
         context = {
             'search':search,

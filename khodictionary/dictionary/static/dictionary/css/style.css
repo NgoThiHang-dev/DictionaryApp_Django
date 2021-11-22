@@ -943,6 +943,11 @@ form .inner-form .input-field .btn-search:hover svg, .btn-search-mic:hover svg, 
   color: #fff;
 }
 
+/* thanh ke doc */
+.verticalLine {
+  border-left: thick solid #ff0000;
+}
+
 
 /* title */
 hr.divider {

@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('dictionary/', include('dictionary.urls')),
     path('courses/', include('courses.urls')),
+    path('translate/', include('translate.urls')),
     #api
     # path('api/courses/', GetAllCourseAPIView.as_view()),
     # path('api/dictionary/', GetAllDictionaryAPIView.as_view()),

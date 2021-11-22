@@ -1,17 +1,15 @@
 {% extends 'dictionary/base.html' %} {% load static %} {% block content %}
 <style>
-  .translate-di{
+  .translate-di {
     width: 100%;
     margin: 0 auto;
     background-color: rgb(255, 248, 228);
     align-items: center;
   }
-  .translate-di img{
+  .translate-di img {
     width: 50%;
     height: 80%;
   }
-
-  
 </style>
 
 <div class="main-content">
@@ -23,42 +21,71 @@
             <img src="{% static 'dictionary/images/logo.jpg' %}" alt="Image" />
           </div>
         </div>
-        <div class="col-sm-2">
-
-        </div>
+        <div class="col-sm-2"></div>
         <div class="col-sm-8">
           <div class="search">
             <form action="" method="POST">
               {% csrf_token %}
-              <div class="inner-form">
-                <div class="input-field">
-                  <button class="btn-search" type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                      <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                    </svg>
-                  </button>
-                  <input id="search" name="search" type="text" placeholder="Nhập từ tìm kiếm" value="" />
-                  <button class="btn-search-mic" type="button">
-                    <svg class="mic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">
-                      <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
-                      <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
-                    </svg>
-                  </button>
+              <div class="section-search-input">
+                <div class="inner-form">
+                  <div class="input-field">
+                    <button class="btn-search" type="button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                        ></path>
+                      </svg>
+                    </button>
+                    <input
+                      id="search"
+                      name="search"
+                      type="text"
+                      placeholder="Nhập từ tìm kiếm"
+                      value=""
+                    />
+                    <button class="btn-search-mic" type="button">
+                      <svg
+                        class="mic"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-mic-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z" />
+                        <path
+                          d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
+              <div class="search-option">
+                <input
+                  class="noi"
+                  type="submit"
+                  name="vk"
+                  value="Tiếng Việt - Tiếng K'ho"
+                />
+                <input
+                  class="noi"
+                  type="submit"
+                  name="kv"
+                  value="Tiếng K'ho - Tiếng Việt"
+                />
+              </div>
             </form>
-  
-            <div class="search-option">
-              <input class="btn-search" type="submit" name="vk" value="Tiếng Việt - Tiếng K'ho"/>
-              <input class="noi" type="submit" name="kv" value="Tiếng K'ho - Tiếng Việt"/>
-                
-            </div>
           </div>
         </div>
-        
       </div>
     </div>
-    
   </div>
   <!-- End Search Bar -->
   <div class="main-content-2" style="margin-top: 1.6em; margin-bottom: 1em">
@@ -81,13 +108,13 @@
       var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
       var SpeechRecognitionEvent =
         SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
-  
+
       var colors = [];
       var grammar =
         "#JSGF V1.0; grammar colors; public <color> = " +
         colors.join(" | ") +
         " ;";
-  
+
       var recognition = new SpeechRecognition();
       var speechRecognitionList = new SpeechGrammarList();
       speechRecognitionList.addFromString(grammar, 1);
@@ -96,12 +123,12 @@
       recognition.lang = "vi";
       recognition.interimResults = false;
       recognition.maxAlternatives = 1;
-  
+
       //var diagnostic = document.querySelector('.output');
-      var diagnostic = document.querySelector(".input-field");
+      var diagnostic = document.querySelector(".section-search-input");
       var bg = document.querySelector("html");
       var hints = document.querySelector(".hints");
-  
+
       var colorHTML = "";
       colors.forEach(function (v, i, a) {
         console.log(v, i);
@@ -109,13 +136,13 @@
           '<span style="background-color:' + v + ';"> ' + v + " </span>";
       });
       //hints.innerHTML = 'Tap/click then say a color to change the background color of the app. Try ' + colorHTML + '.';
-  
+
       mic = document.querySelector(".mic");
       mic.onclick = function () {
         recognition.start();
         console.log("Ready to receive a color command.");
       };
-  
+
       recognition.onresult = function (event) {
         // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
         // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
@@ -127,89 +154,110 @@
         // We then return the transcript property of the SpeechRecognitionAlternative object
         var color = event.results[0][0].transcript;
         var data =
+          '<div class="inner-form">' +
+          '<div class="input-field">' +
           '<button class="btn-search" type="button">' +
-            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">' +
-              '<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>' +
-            '</svg>'+ 
-          '</button>'+
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">' +
+          '<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>' +
+          "</svg>" +
+          "</button>" +
           '<input id="search" name="search" type="text" placeholder="Nhập từ tìm kiếm" value="' +
           color +
           '" />' +
           '<button class="btn-search-mic" type="button">' +
-            '<svg class="mic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">' +
-              '<path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>' +
-              '<path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>'+ 
-            '</svg>'+
-          '</button>'; 
+          '<svg class="mic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">' +
+          '<path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>' +
+          '<path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>' +
+          "</svg>" +
+          "</button>" +
+          "</div>" +
+          "</div>";
         diagnostic.innerHTML = data;
         bg.style.backgroundColor = color;
         console.log("Confidence: " + event.results[0][0].confidence);
       };
-  
+
       recognition.onspeechend = function () {
         recognition.stop();
       };
-  
+
       recognition.onnomatch = function (event) {
         diagnostic.textContent = "I didn't recognise that color.";
       };
-  
+
       recognition.onerror = function (event) {
-        diagnostic.textContent = "Error occurred in recognition: " + event.error;
+        diagnostic.textContent =
+          "Error occurred in recognition: " + event.error;
       };
     </script>
 
     <!-- Section dịch nghĩa -->
-    {% if result %} 
-      {% for a in result %}
-      <div class="my-3 p-3 bg-body rounded shadow-sm">
-        <div class="row pt-3">
-          <h6 class="border-bottom pb-2 mb-0">Ý nghĩa của từ <b style="color: rgb(255, 106, 0); font-size: 20px;">{{a.tiengkho}}</b> trong tiếng Việt</h6>
-          <div class="row mb-3" style="margin-top: 5px;">
-            <div class="col-4">
-              <h4></h4>
-              <p><b>Phiên âm:</b> </p>
-            </div>
-            <div class="col-4">
+    {% if result %} {% for a in result %}
+    <div class="my-3 p-3 bg-body rounded shadow-sm">
+      <div class="row pt-3">
+        <h6 class="border-bottom pb-2 mb-0">
+          Thông tin của từ
+          <b style="color: rgb(255, 106, 0); font-size: 20px"
+            >{{a.tiengkho}} - {{ a.tiengviet }}</b
+          >
+          (tiếng K'ho - tiếng Việt)
+        </h6>
+        <div class="row g-2">
+          <div class="col-md-6">
+            <div style="margin-left: 15px">
+              <h4>{{a.tiengkho}}</h4>
+              <p><b>Phiên âm:</b> {{a.phienamtiengkho}}</p>
               <audio controls>
-                <source src="" />
+                <source src="{{a.fileaudio.url}}" />
               </audio>
-            </div>
-            <div class="col-4">
-            </div>
-          </div>
-          <div class="row mb-3 translate-di">
-            <div class="col-6">
-              <img src="" alt="" />
-            </div>
-            <div class="col-6">
-              <p><b>Nghĩa của từ:</b> </p>
+              <p><b>Ví dụ:</b> {{a.vidutiengkho}}</p>
             </div>
           </div>
-          <div class="row mb-3">
-            <p><b>Ví dụ:</b> </p>
+          <div class="col-md-6" style="border-left: thick solid #f4a259">
+            <div style="margin-left: 15px">
+              <h4>{{a.tiengviet}}</h4>
+              <p><b>Phiên âm:</b> {{a.phienamtiengviet}}</p>
+              <audio controls>
+                <source src="{{a.fileaudio.url}}" />
+              </audio>
+              <p><b>Ví dụ:</b> {{a.vidutiengviet}}</p>
+            </div>
           </div>
         </div>
       </div>
-      
-      {% endfor %}
+    </div>
 
-    {% elif result == null %}
-      
-    {% else %}
-      <div class="alert alert-primary alert-dismissible fade show" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
-          <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
-          <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
-          </svg>
-          <span style="margin-left: 5px;">Hãy chọn chuyển đổi ngôn ngữ phù hợp. Dữ liệu đang cập nhật!</span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+    {% endfor %} {% elif result == null %} {% else %}
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-file-earmark-text"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"
+        />
+        <path
+          d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"
+        />
+      </svg>
+      <span style="margin-left: 5px"
+        >Hãy chọn chuyển đổi ngôn ngữ phù hợp. Dữ liệu đang cập nhật!</span
+      >
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
     {% endif %}
 
     <!-- End section dịch nghĩa -->
 
-    
     <!-- <div class="my-3 p-3 bg-body rounded shadow-sm">
       <h5 class="border-bottom pb-2 mb-0">Tìm kiếm phổ biến</h5>
       <div class="row pt-3">
