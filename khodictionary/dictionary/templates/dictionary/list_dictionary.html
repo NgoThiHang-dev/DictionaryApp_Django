@@ -1,0 +1,112 @@
+{% extends 'dictionary/base.html' %} {% load static %} {% block content %}
+
+<div class="main-content-3" style="margin-top: 2.6em; margin-bottom: 2em; min-height: 400px">
+  <br>
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h5 class="border-bottom pb-2 mb-0">Duyệt từ điển tiếng Kh'Ho</h5>
+    <div class="characters">
+      <div class="row pt-12">
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">A</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">B</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">C</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">D</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">E</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">F</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">G</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">H</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">I</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">J</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">K</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">L</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">M</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">N</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">O</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">P</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">Q</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">R</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">S</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">T</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">U</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">V</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">W</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">X</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="{% url 'dictionary:list-dictionary' %}" class="color-while">Y</a>
+        </button>
+        <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <a href="" class="color-while">Z</a>
+        </button>
+      </div>
+      
+    </div>
+
+    <small class="d-block text-end mt-3">
+      <a href="#">Duyệt từ</a>
+    </small>
+  </div>
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h5 class="border-bottom pb-2 mb-0">Các từ bắt đầu bằng y</h5>
+    
+    <div class="container">
+      <div class="row">
+        {% for a in result %}
+        <div class="col-6">
+          <span>{{a.tiengviet}} ...</span>
+          <span>{{a.tiengkho}}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+{% endblock content %}

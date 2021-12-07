@@ -207,9 +207,11 @@
             <div style="margin-left: 15px">
               <h4>{{a.tiengkho}}</h4>
               <p><b>Phiên âm:</b> {{a.phienamtiengkho}}</p>
-              <audio controls>
-                <source src="{{a.fileaudio.url}}" />
+
+              <audio controls preload="auto">
+                <source src="{{a.fileaudiotiengkho.url}}" type="audio/mpeg"/>
               </audio>
+
               <p><b>Ví dụ:</b> {{a.vidutiengkho}}</p>
             </div>
           </div>
@@ -218,7 +220,7 @@
               <h4>{{a.tiengviet}}</h4>
               <p><b>Phiên âm:</b> {{a.phienamtiengviet}}</p>
               <audio controls>
-                <source src="{{a.fileaudio.url}}" />
+                <source src="{{a.fileaudiotiengviet.url}}" />
               </audio>
               <p><b>Ví dụ:</b> {{a.vidutiengviet}}</p>
             </div>
@@ -274,11 +276,11 @@
     <div class="my-3 p-3 bg-body rounded shadow-sm">
       <h5 class="border-bottom pb-2 mb-0">Duyệt từ điển tiếng Kh'Ho</h5>
       <div class="characters">
-        <div class="row pt-3">
-          <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+        <div class="row pt-12">
+          <button type="button" class="btn btn-circle btn-lg kytu bt-text" >
             <a href="" class="color-while">A</a>
           </button>
-          <button type="button" class="btn btn-circle btn-lg kytu bt-text">
+          <button type="button" class="btn btn-circle btn-lg kytu bt-text" >
             <a href="" class="color-while">B</a>
           </button>
           <button type="button" class="btn btn-circle btn-lg kytu bt-text">
@@ -299,8 +301,6 @@
           <button type="button" class="btn btn-circle btn-lg kytu bt-text">
             <a href="" class="color-while">H</a>
           </button>
-        </div>
-        <div class="row pt-3">
           <button type="button" class="btn btn-circle btn-lg kytu bt-text">
             <a href="" class="color-while">I</a>
           </button>
@@ -325,8 +325,6 @@
           <button type="button" class="btn btn-circle btn-lg kytu bt-text">
             <a href="" class="color-while">P</a>
           </button>
-        </div>
-        <div class="row pt-3">
           <button type="button" class="btn btn-circle btn-lg kytu bt-text">
             <a href="" class="color-while">Q</a>
           </button>
@@ -351,17 +349,16 @@
           <button type="button" class="btn btn-circle btn-lg kytu bt-text">
             <a href="" class="color-while">X</a>
           </button>
-        </div>
-        <div class="row pt-3">
-          <button type="button" class="btn btn-circle btn-lg kytu bt-text">
-            <a href="" class="color-while">Y</a>
+          <button type="button" class="btn btn-circle btn-lg kytu bt-text" name="y">
+            <a href="{% url 'dictionary:list-dictionary' %}" class="color-while">Y</a>
           </button>
           <button type="button" class="btn btn-circle btn-lg kytu bt-text">
             <a href="" class="color-while">Z</a>
           </button>
         </div>
+        
       </div>
-
+  
       <small class="d-block text-end mt-3">
         <a href="#">Duyệt từ</a>
       </small>

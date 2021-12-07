@@ -1,29 +1,3 @@
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
-@font-face {
-  font-family: Poppins-Regular;
-  src: url("../fonts/poppins/Poppins-Regular.ttf");
-}
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url("../fonts/poppins/Poppins-Medium.ttf");
-}
-
-@font-face {
-  font-family: Poppins-Bold;
-  src: url("../fonts/poppins/Poppins-Bold.ttf");
-}
-
-@font-face {
-  font-family: Poppins-SemiBold;
-  src: url("../fonts/poppins/Poppins-SemiBold.ttf");
-}
-
-/*//////////////////////////////////////////////////////////////////
-[ RESTYLE TAG ]*/
-
 * {
   margin: 0px;
   padding: 0px;
@@ -33,12 +7,12 @@
 body,
 html {
   height: 100%;
-  font-family: Poppins-Regular, sans-serif;
+  font-family: sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-  font-family: Poppins-Regular;
+  font-family: sans-serif;
   font-size: 14px;
   line-height: 1.7;
   color: #666666;
@@ -55,7 +29,7 @@ a:focus {
 
 a:hover {
   text-decoration: none;
-  color: #a64bf4;
+  color: rgba(34,126,34,1);
 }
 
 /*---------------------------------------------*/
@@ -69,7 +43,7 @@ h6 {
 }
 
 p {
-  font-family: Poppins-Regular;
+  font-family: sans-serif;
   font-size: 14px;
   line-height: 1.7;
   color: #666666;
@@ -325,11 +299,11 @@ iframe {
 }
 
 .input100:focus + .focus-input100::after {
-  color: #a64bf4;
+  color: rgba(34,126,34,1);
 }
 
 .has-val.input100 + .focus-input100::after {
-  color: #a64bf4;
+  color: rgba(34,126,34,1);
 }
 
 /*------------------------------------------------------------------
@@ -365,17 +339,16 @@ iframe {
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: #a64bf4;
+  background: rgba(34,126,34,1);
   background: -webkit-linear-gradient(
     right,
-    #00dbde,
-    #fc00ff,
-    #00dbde,
-    #fc00ff
+    rgba(34,126,34,1),
+    rgba(168,251,60,1)
   );
-  background: -o-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
-  background: -moz-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
-  background: linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  background: -o-linear-gradient(right, rgba(34,126,34,1) 2.9%, rgba(168,251,60,1) 90.3%);
+  background: -moz-linear-gradient(right, rgba(34,126,34,1) 2.9%, rgba(168,251,60,1) 90.3%);
+  background: linear-gradient(right, rgba(34,126,34,1) 2.9%, rgba(168,251,60,1) 90.3%);
+  background-image: linear-gradient( 110.1deg,  rgba(34,126,34,1) 2.9%, rgba(168,251,60,1) 90.3% );
   top: 0;
   left: -100%;
 

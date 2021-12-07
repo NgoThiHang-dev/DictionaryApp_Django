@@ -46,9 +46,6 @@
           <a class="nav-link" href="{% url 'courses:damthoai' idbai %}" data-toggle="tab">Đàm thoại</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="tab">Viết bài đàm thoại</a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" href="{% url 'courses:datcauhoi' idbai %}" data-toggle="tab">Đặt câu hỏi</a>
         </li>
         <li class="nav-item">
@@ -80,14 +77,12 @@
                         <div class="direct-chat-infos clearfix">
                           <span class="direct-chat-name float-left">Bên A</span>
                         </div>
-                        
                         <div id="kho" class="direct-chat-text">
                           {{a.cauhoitiengkho}}
                           <p id="viet">{{a.cauhoitiengviet}}</p>
                         </div>
                         
                       </div>
-                    
                       <div class="direct-chat-msg right">
                         <div class="direct-chat-infos clearfix">
                           <span class="direct-chat-name float-right">Bên B</span>

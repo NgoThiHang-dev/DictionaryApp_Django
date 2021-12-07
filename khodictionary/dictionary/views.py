@@ -74,33 +74,44 @@ def DeleteCourse(request, pk):
     
 
 def index(request):
-   results=Dictionary.objects.all()
+    results=Dictionary.objects.all()
 #    hint search
-   if 'term' in request.GET:
-        # results = TuVung.objects.filter(tiengviet__istartswith=request.GET.get('term'))
-        results = Dictionary.objects.filter(tiengkho__istartswith=request.GET.get('term'))
-        titles = list()
-        # for tv in results:
-        #     titles.append(tv.tiengviet)
-        for tv in results:
-            titles.append(tv.tiengkho)
-        return JsonResponse(titles, safe=False)
+    if 'term' in request.GET:
+            # results = TuVung.objects.filter(tiengviet__istartswith=request.GET.get('term'))
+            results = Dictionary.objects.filter(tiengkho__istartswith=request.GET.get('term'))
+            titles = list()
+            # for tv in results:
+            #     titles.append(tv.tiengviet)
+            for tv in results:
+                titles.append(tv.tiengkho)
+            return JsonResponse(titles, safe=False)
 
-   if request.method == 'POST':
-        search = request.POST.get('search')
-        if request.POST.get('vk'):
-            results = Dictionary.objects.filter(Q(tiengviet__icontains=search))  
-        elif request.POST.get('kv'):
-            results = Dictionary.objects.filter(Q(tiengkho__icontains=search))
+    if request.method == 'POST':
+            search = request.POST.get('search')
+            if request.POST.get('vk'):
+                results = Dictionary.objects.filter(Q(tiengviet__icontains=search))  
+            elif request.POST.get('kv'):
+                results = Dictionary.objects.filter(Q(tiengkho__icontains=search))
+            context = {
+                'search':search,
+                'result':results,
+            }
+            return render(request, 'dictionary/index.html',context)
+    
+    return render(request, 'dictionary/index.html', {"Dictionary": results})
+
+
+
+def listDictionary(request):
+    results=Dictionary.objects.all()
+    if request.method == 'GET':
+        # results = Dictionary.objects.raw('SELECT * FROM dictionary WHERE tiengviet LIKE "%y%"')
+        results = Dictionary.objects.filter(tiengviet__icontains='y')
         context = {
-            'search':search,
             'result':results,
         }
-        return render(request, 'dictionary/index.html',context)
-    
-   return render(request, 'dictionary/index.html', {"Dictionary": results})
-
-
+        return render(request, 'dictionary/list_dictionary.html',context)
+    return render(request, 'dictionary/list_dictionary.html', {"Dictionary": results})
 
 def signin(request):
     forms = LoginForm()

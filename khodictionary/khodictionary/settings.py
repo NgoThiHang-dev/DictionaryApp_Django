@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'dictionary.apps.DictionaryConfig',
     'courses.apps.CoursesConfig',
     'translate.apps.TranslateConfig',
+    'exam.apps.ExamConfig',
+    'contact.apps.ContactConfig',
     # Django REST framework
     'rest_framework',
     # CORS
@@ -94,7 +96,7 @@ WSGI_APPLICATION = 'khodictionary.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'kho_dictionary',
+        'NAME': 'khodictionary_app',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost'
@@ -143,6 +145,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'khodictionary/static')
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URLS = '/media/'
 
@@ -150,5 +153,5 @@ MEDIA_URLS = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 django_heroku.settings(locals())

@@ -26,6 +26,8 @@ urlpatterns = [
     path('dictionary/', include('dictionary.urls')),
     path('courses/', include('courses.urls')),
     path('translate/', include('translate.urls')),
+    path('exam/', include('exam.urls')),
+    path('contact/', include('contact.urls')),
     #api
     # path('api/courses/', GetAllCourseAPIView.as_view()),
     # path('api/dictionary/', GetAllDictionaryAPIView.as_view()),

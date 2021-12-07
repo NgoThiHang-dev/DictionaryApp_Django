@@ -8,6 +8,8 @@ from .views import signin, signup
 app_name='dictionary'
 urlpatterns = [
    path('', views.index, name='dictionary'),
+   path('list-dictionary/', views.listDictionary, name='list-dictionary'),
+   
    path('register/', signup, name='register'),
    path('login/', signin, name="login"),
    path('logout/',auth_views.LogoutView.as_view(next_page='/dictionary/'), name='logout'),

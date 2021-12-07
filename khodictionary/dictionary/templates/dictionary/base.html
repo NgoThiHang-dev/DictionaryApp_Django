@@ -96,17 +96,15 @@
               </li>
 
               <li>
-                <a
-                  href="{% url 'dictionary:dictionary' %}"
-                  class="nav-link px-2 text-white"
-                  >Từ điển</a
+                <a href="{% url 'exam:exam' %}" class="nav-link px-2 text-white"
+                  >Kiểm tra</a
                 >
               </li>
               <li>
                 <a
-                  href="{% url 'dictionary:dictionary' %}"
+                  href="{% url 'contact:contact' %}"
                   class="nav-link px-2 text-white"
-                  >Từ điển</a
+                  >Hỗ trợ</a
                 >
               </li>
             </ul>
@@ -153,7 +151,14 @@
         <div class="row" style="margin-bottom: 5px">
           <div class="col-3" style="color: #fff">
             <h5 style="margin-left: 70px">Danh mục</h5>
-            <ul class="nav flex-column" style="margin-left: 70px"></ul>
+            <ul class="nav flex-column" style="margin-left: 70px">
+              <li class="nav-item mb-2"><a href="{% url 'dictionary:dictionary' %}" class="nav-link p-0 text-while">Từ điển</a></li>
+              <li class="nav-item mb-2"><a href="{% url 'translate:translate' %}" class="nav-link p-0 text-while">Dịch</a></li>
+              <li class="nav-item mb-2"><a href="{% url 'courses:courses' %}" class="nav-link p-0 text-while">Khóa học</a></li>
+              <li class="nav-item mb-2"><a href="{% url 'exam:exam' %}" class="nav-link p-0 text-while">Học từ vựng</a></li>
+              <li class="nav-item mb-2"><a href="{% url 'contact:contact' %}" class="nav-link p-0 text-while">Hỗ trợ</a></li>
+            </ul>
+            
           </div>
           <div class="col-3">
             <div class="headinga">
