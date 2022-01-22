@@ -12,6 +12,20 @@ a {
   text-decoration: none;
 }
 
+nav{
+  background-color: #f00;
+}
+
+#main-menu{
+  display: flex;
+}
+nav#main-menu li a{
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 15px;
+}
+
 .color-while {
   color: #fff;
 }
@@ -1064,3 +1078,20 @@ textarea.border-hidden {
 }
 
 
+
+@media screen and (max-width: 768px) {
+  .header{
+    flex-direction: column;
+
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  
+}

@@ -67,72 +67,30 @@
       <!-- <h4 class="border-bottom pb-2 mb-0">Chọn ngôn ngữ</h4> -->
       <div class="container">
         <div class="row border-bottom pb-2 mb-0">
-          <div class="col-md-5">
+          <div class="col-md-6">
             <div class="header__user">
-              <p>Phát hiện ngôn ngữ</p>
               <div class="menu-language">
                 <ul id="menu-language">
                   <li><a href="">Tiếng Việt</a></li>
-                  <li><a href="">Tiếng Kh'Ho</a></li>
                 </ul>
-              </div>
-
-              <div class="user__language">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-chevron-down"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                  />
-                </svg>
               </div>
             </div>
           </div>
-          <div class="col-md-2" style="text-align: center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-arrow-left-right"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
-              />
-            </svg>
-          </div>
-          <div class="col-md-5">
-            <div class="header__user">
-              <div class="menu-language">
-                <ul id="menu-language">
-                  <li><a href="">Tiếng Kh'Ho</a></li>
-                  <li><a href="">Tiếng Việt</a></li>
-                </ul>
-              </div>
 
-              <div class="user__language">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-chevron-down"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                  />
-                </svg>
-              </div>
+          <div class="col-md-6">
+            <div class="search-option">
+              <input
+                class="noi"
+                type="submit"
+                name="tiengkho"
+                value="Tiếng K'Ho"
+              />
+              <input
+                class="noi"
+                type="submit"
+                name="tiengchuru"
+                value="Tiếng Churu"
+              />
             </div>
           </div>
         </div>
@@ -143,10 +101,11 @@
             <div class="section-heading text-center">
               <h4>Chọn tài liệu</h4>
               <p>
-                Tải lên tệp .doc, .docx, .odf, .pdf, .ppt, .pptx, .ps, .rtf,
-                .txt, .xls hoặc .xlsx
+                Tải lên tệp .doc, .docx, .pdf, .txt, 
               </p>
-              <input type="file" id="file-upload" required />
+              <input type="file" id="file-upload" required style="margin-left: 75px;"/>
+              <br>
+              <button type="button" class="btn btn-primary btn-sm" style="margin-top: 15px;">Dịch</button>
             </div>
           </div>
         </div>
